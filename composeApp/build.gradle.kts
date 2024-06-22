@@ -5,12 +5,12 @@ import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 import org.jetbrains.kotlin.gradle.plugin.KotlinSourceSetTree
 
 plugins {
-    alias(libs.plugins.multiplatform)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.compose)
-    alias(libs.plugins.android.application)
+    id(libs.plugins.multiplatform.get().pluginId)
+    id(libs.plugins.compose.compiler.get().pluginId)
+    id(libs.plugins.compose.asProvider().get().pluginId)
+    id(libs.plugins.android.application.get().pluginId)
     alias(libs.plugins.buildConfig)
-    alias(libs.plugins.kotlinx.serialization)
+    id(libs.plugins.kotlinx.serialization.get().pluginId)
 }
 
 kotlin {
@@ -48,6 +48,7 @@ kotlin {
     sourceSets {
         commonMain.dependencies {
             implementation(compose.runtime)
+            implementation(compose.ui)
             implementation(compose.foundation)
             implementation(compose.material3)
             implementation(compose.components.resources)
@@ -63,7 +64,9 @@ kotlin {
             implementation(libs.multiplatformSettings)
             implementation(libs.koin.core)
 
-            implementation(project(":resources"))
+            implementation(project(":design"))
+            implementation(project(":root"))
+            implementation(project(":data:ktor"))
         }
 
         commonTest.dependencies {
@@ -78,6 +81,7 @@ kotlin {
             implementation(libs.androidx.activityCompose)
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.koin.android)
         }
 
         iosMain.dependencies {

@@ -1,12 +1,31 @@
 rootProject.name = "X-Travel"
 include(":composeApp")
-include(":resources")
+include(":root")
+include(":design")
+
+/**
+ * Data
+ */
+include(":data:ktor")
+include(":data:api")
+include(":data:database")
+
+/**
+ * Feature register
+ */
+include(":feature-register:data")
+include(":feature-register:domain")
+include(":feature-register:presentation")
 
 pluginManagement {
     repositories {
         google()
         gradlePluginPortal()
         mavenCentral()
+
+        maven {
+            url = uri("https://plugins.gradle.org/m2/")
+        }
     }
 }
 

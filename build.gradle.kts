@@ -1,9 +1,14 @@
 plugins {
-    alias(libs.plugins.multiplatform).apply(false)
-    alias(libs.plugins.compose.compiler).apply(false)
-    alias(libs.plugins.compose).apply(false)
-    alias(libs.plugins.android.application).apply(false)
-    alias(libs.plugins.android.library).apply(false)
-    alias(libs.plugins.buildConfig).apply(false)
-    alias(libs.plugins.kotlinx.serialization).apply(false)
+    id(libs.plugins.multiplatform.get().pluginId).apply(false)
+    id(libs.plugins.compose.compiler.get().pluginId).apply(false)
+    id(libs.plugins.compose.asProvider().get().pluginId).apply(false)
+    id(libs.plugins.android.application.get().pluginId).apply(false)
+    id(libs.plugins.android.library.get().pluginId).apply(false)
+    alias(libs.plugins.buildConfig)
+    id(libs.plugins.kotlinx.serialization.get().pluginId).apply(false)
+}
+
+tasks.register("clean", Delete::class.java) {
+    doLast { }
+    delete(rootProject.layout.buildDirectory)
 }

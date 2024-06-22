@@ -1,11 +1,12 @@
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
 plugins {
-    alias(libs.plugins.multiplatform)
-    alias(libs.plugins.android.library)
-    alias(libs.plugins.compose.compiler)
-    alias(libs.plugins.compose)
+    id("org.jetbrains.kotlin.multiplatform")
+    id("com.android.library")
 }
+
+internal val Project.libs: VersionCatalog
+    get() = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
 kotlin {
     androidTarget {
@@ -27,22 +28,23 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            implementation(compose.runtime)
-            implementation(compose.components.resources)
+            implementation(libs.findLibrary("koin-core").get())
+            implementation(libs.findLibrary("napier").get())
         }
     }
 }
 
 android {
-    namespace = "yegor.cheprasov.xtravel.resources"
-    compileSdk = 34
-    
+    compileSdk = DefaultConfig.compileSdk
+
+    defaultConfig {
+        minSdk = DefaultConfig.minSdk
+
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+    }
+
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
-}
-
-compose.resources {
-    publicResClass = true
 }

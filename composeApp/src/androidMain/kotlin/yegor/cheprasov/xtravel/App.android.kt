@@ -15,7 +15,10 @@ class AndroidApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
+
         INSTANCE = this
+
+        KoinInjector.inject(INSTANCE)
     }
 }
 

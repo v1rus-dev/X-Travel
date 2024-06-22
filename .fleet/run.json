@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "type": "android-app",
+            "name": "Android-app configuration",
+            "allowParallelRun": true,
+            "module": "X-Travel.composeApp.main",
+        },
+    ]
+}

@@ -1,29 +1,40 @@
 package yegor.cheprasov.xtravel
 
 import androidx.compose.animation.core.*
+import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.text2.input.TextFieldState
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.ColorFilter
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import yegor.cheprasov.xtravel.theme.AppTheme
 import yegor.cheprasov.xtravel.theme.LocalThemeIsDark
 import org.jetbrains.compose.resources.Font
 import org.jetbrains.compose.resources.stringResource
 import org.jetbrains.compose.resources.vectorResource
-import x_travel.resources.generated.resources.*
+import x_travel.design.generated.resources.*
+import yegor.cheprasov.xtravel.design.AppTextField
 
+@OptIn(ExperimentalFoundationApi::class)
 @Composable
 internal fun App() = AppTheme {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .windowInsetsPadding(WindowInsets.safeDrawing)
+            .imePadding()
             .padding(16.dp),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -32,6 +43,10 @@ internal fun App() = AppTheme {
             fontFamily = FontFamily(Font(Res.font.IndieFlower_Regular)),
             style = MaterialTheme.typography.displayLarge
         )
+
+        val textFieldState = remember {
+            TextFieldState()
+        }
 
         var isAnimate by remember { mutableStateOf(false) }
         val transition = rememberInfiniteTransition()
@@ -88,6 +103,27 @@ internal fun App() = AppTheme {
             onClick = { openUrl("https://github.com/terrakok") },
         ) {
             Text(stringResource(Res.string.open_github))
+        }
+
+        AppTextField(
+            state = textFieldState,
+            modifier = Modifier.padding(top = 50.dp)
+        )
+
+        LazyColumn {
+            items(100) {
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    verticalAlignment = Alignment.CenterVertically,
+                    horizontalArrangement = Arrangement.Center
+                ) {
+                    Text(
+                        text = it.toString(),
+                        fontSize = 14.sp,
+                        color = Color.Black
+                    )
+                }
+            }
         }
     }
 }

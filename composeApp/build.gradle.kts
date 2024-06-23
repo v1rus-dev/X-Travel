@@ -42,6 +42,10 @@ kotlin {
         it.binaries.framework {
             baseName = "ComposeApp"
             isStatic = true
+
+            export(libs.decompose.core)
+            export(libs.essenty)
+            export(project(":root"))
         }
     }
 
@@ -65,7 +69,7 @@ kotlin {
             implementation(libs.koin.core)
 
             implementation(project(":design"))
-            implementation(project(":root"))
+            api(project(":root"))
             implementation(project(":data:ktor"))
         }
 
@@ -82,6 +86,7 @@ kotlin {
             implementation(libs.kotlinx.coroutines.android)
             implementation(libs.ktor.client.okhttp)
             implementation(libs.koin.android)
+            implementation(libs.decompose.core)
         }
 
         iosMain.dependencies {

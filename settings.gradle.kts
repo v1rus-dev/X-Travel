@@ -2,6 +2,7 @@ rootProject.name = "X-Travel"
 include(":composeApp")
 include(":root")
 include(":design")
+include(":pages")
 
 /**
  * Data
@@ -16,6 +17,20 @@ include(":data:database")
 include(":feature-register:data")
 include(":feature-register:domain")
 include(":feature-register:presentation")
+
+/**
+ * Feature main
+ */
+include(":feature-main:data")
+include(":feature-main:domain")
+include(":feature-main:presentation")
+
+/**
+ * Feature favorites
+ */
+include(":feature-favorites:data")
+include(":feature-favorites:domain")
+include(":feature-favorites:presentation")
 
 pluginManagement {
     repositories {

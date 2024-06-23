@@ -15,6 +15,8 @@ kotlinx-serialization = "1.7.0-RC"
 kotlinx-datetime = "0.6.0"
 multiplatformSettings = "1.1.1"
 koin = "3.6.0-wasm-alpha2"
+decompose = "3.1.0"
+essenty = "2.1.0"
 
 [libraries]
 
@@ -40,6 +42,9 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 multiplatformSettings = { module = "com.russhwolf:multiplatform-settings", version.ref = "multiplatformSettings" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin"}
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koin" }
+decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "decompose" }
+essenty = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
+decompose-ext = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
 [plugins]
 

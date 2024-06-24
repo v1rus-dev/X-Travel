@@ -17,6 +17,9 @@ multiplatformSettings = "1.1.1"
 koin = "3.6.0-wasm-alpha2"
 decompose = "3.1.0"
 essenty = "2.1.0"
+room = "2.7.0-alpha04"
+sqlite = "2.5.0-alpha04"
+ksp = "2.0.0-1.0.22"
 
 [libraries]
 
@@ -46,6 +49,11 @@ decompose-core = { module = "com.arkivanov.decompose:decompose", version.ref = "
 essenty = { module = "com.arkivanov.essenty:lifecycle", version.ref = "essenty" }
 decompose-ext = { module = "com.arkivanov.decompose:extensions-compose", version.ref = "decompose" }
 
+room-runtime = { group = "androidx.room", name = "room-runtime", version.ref = "room" }
+room-compiler = { group = "androidx.room", name = "room-compiler", version.ref = "room" }
+sqlite = { module = "androidx.sqlite:sqlite", version.ref = "sqlite" }
+sqlite-bundle = { module = "androidx.sqlite:sqlite-bundled", version.ref = "sqlite" }
+
 [plugins]
 
 multiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
@@ -55,3 +63,7 @@ android-application = { id = "com.android.application", version.ref = "agp" }
 android-library = { id = "com.android.library", version.ref = "agp" }
 buildConfig = { id = "com.github.gmazzo.buildconfig", version.ref = "buildConfig" }
 kotlinx-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
+
+#Room
+ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
+room = { id = "androidx.room", version.ref = "room" }

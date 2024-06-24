@@ -8,6 +8,8 @@ import com.arkivanov.decompose.value.Value
 import com.arkivanov.essenty.lifecycle.doOnStart
 import io.github.aakira.napier.Napier
 import kotlinx.serialization.Serializable
+import org.koin.core.component.inject
+import yegor.cheprasov.xtravel.data.database.room.dao.FavoriteDao
 import yegor.cheprasov.xtravel.design.decompose.BaseComponent
 import yegor.cheprasov.xtravel.pages.decompose.RealPagesComponent
 
@@ -22,6 +24,11 @@ class DefaultRootComponent(
     }
     
     private val navigation = StackNavigation<Configuration>()
+    private val favoriteDao: FavoriteDao by inject()
+
+    init {
+        Napier.v { "Hash code ${favoriteDao.hashCode().toString()}" }
+    }
 
     override val stack: Value<ChildStack<*, RootComponent.Child>> =
         childStack(

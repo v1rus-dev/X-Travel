@@ -5,13 +5,14 @@ import ComposeApp
 class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
-    let rootHolder = RootHolder()
+    let rootHolder: RootHolder
 
     override init() {
         #if DEBUG
         NapierProxyKt.doInitNapier()
         #endif
         InitKoinKt.doInitKoin()
+        rootHolder = RootHolder()
     }
 
     func application(

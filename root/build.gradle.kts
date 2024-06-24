@@ -9,6 +9,7 @@ kotlin {
         commonMain.dependencies {
             implementation(project(":design"))
             implementation(project(":pages"))
+            implementation(project(":data:database"))
         }
     }
 }

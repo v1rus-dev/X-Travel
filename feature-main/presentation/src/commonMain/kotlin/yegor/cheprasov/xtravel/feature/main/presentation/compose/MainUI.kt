@@ -6,7 +6,9 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import org.jetbrains.compose.ui.tooling.preview.Preview
 import yegor.cheprasov.xtravel.feature.main.presentation.decompose.MainComponent
+import yegor.cheprasov.xtravel.feature.main.presentation.decompose.PreviewMainComponent
 
 @Composable
 fun MainUI(component: MainComponent) {
@@ -23,4 +25,10 @@ fun MainUI(component: MainComponent) {
             }
         }
     }
+}
+
+@Preview
+@Composable
+fun PreviewMainUI() {
+    MainUI(component = PreviewMainComponent())
 }

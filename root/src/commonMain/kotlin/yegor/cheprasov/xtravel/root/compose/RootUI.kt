@@ -10,11 +10,9 @@ import yegor.cheprasov.xtravel.root.decompose.RootComponent
 fun BoxWithConstraintsScope.RootUI(
     component: RootComponent
 ) {
-    
     Children(component.stack) {
         when(val instance = it.instance) {
             is RootComponent.Child.Pages -> PagesUI(component = instance.component)
         }
     }
-    
 }

@@ -1,8 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="jar" name="design-jvm">
     <output-path>$PROJECT_DIR$/design/build/libs</output-path>
-    <root id="archive" name="design-jvm.jar">
-      <element id="module-output" name="X-Travel.design.jvmMain" />
-    </root>
+    <root id="archive" name="design-jvm.jar" />
   </artifact>
 </component>

@@ -8,7 +8,7 @@ import org.koin.mp.KoinPlatformTools
 import yegor.cheprasov.xtravel.design.utils.CoroutineScope
 import kotlin.coroutines.CoroutineContext
 
-open class BaseComponent(componentContext: ComponentContext) : ComponentContext by componentContext, KoinComponent {
+open class BaseComponent(componentContext: ComponentContext) : ComponentContext by componentContext, KoinComponent, AppComponent {
     
     protected val dispatcherIO by injectIODispatcher()
     protected val dispatcherDefault by injectDefaultDispatcher()

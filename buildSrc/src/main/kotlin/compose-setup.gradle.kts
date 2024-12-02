@@ -11,6 +11,15 @@ internal val Project.libs: VersionCatalog
 
 kotlin {
     sourceSets {
+
+        androidMain.dependencies {
+            implementation(libs.findLibrary("coil-engine-android").get())
+        }
+
+        appleMain.dependencies {
+            implementation(libs.findLibrary("coil-engine-darwin").get())
+        }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.ui)
@@ -20,6 +29,13 @@ kotlin {
             implementation(compose.material)
             implementation(compose.material3)
             implementation(compose.materialIconsExtended)
+
+            api(libs.findLibrary("calf-ui").get())
+            implementation(libs.findLibrary("calf-file-picker").get())
+            implementation(libs.findLibrary("calf-permissions").get())
+            implementation(libs.findLibrary("coil").get())
+            implementation(libs.findLibrary("coil-network-ktor").get())
+            implementation(libs.findLibrary("androidx-ui-tooling-preview").get())
         }
     }
 }

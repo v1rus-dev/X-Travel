@@ -11,15 +11,6 @@ internal val Project.libs: VersionCatalog
 
 kotlin {
     sourceSets {
-
-        androidMain.dependencies {
-            implementation(libs.findLibrary("coil-engine-android").get())
-        }
-
-        appleMain.dependencies {
-            implementation(libs.findLibrary("coil-engine-darwin").get())
-        }
-
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.ui)
